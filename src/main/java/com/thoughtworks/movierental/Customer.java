@@ -21,7 +21,7 @@ public class Customer {
 
     public String statement() {
 
-        String result = "Rental Record for " + getName() + "\n";
+        String result = "Rental Record for " + name + "\n";
         for (Rental rental : rentals) {
 
             //show figures for this rental
