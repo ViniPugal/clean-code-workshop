@@ -20,28 +20,7 @@ public class Customer {
     }
 
     public String statement() {
-        return header() + body() + footer();
-    }
-
-    private String header() {
-        return "Rental Record for " + name + "\n";
-    }
-
-    private String body() {
-        String body = "";
-        for (Rental rental : rentals) {
-            body += "\t" + rental.getMovie().getTitle() + "\t" +
-                    rental.amount() + "\n";
-        }
-        return body;
-    }
-
-    private String footer() {
-        String footer = "";
-        footer += "Amount owed is " + totalAmount() + "\n";
-        footer += "You earned " + frequentRenterPoints()
-                + " frequent renter points";
-        return footer;
+        return new Statement(name, rentals, totalAmount(), frequentRenterPoints()).generate();
     }
 
     private int frequentRenterPoints() {
@@ -50,6 +29,10 @@ public class Customer {
 
     private double totalAmount() {
         return rentals.stream().mapToDouble(Rental::amount).sum();
+    }
+
+    public String htmlStatement() {
+        return new HTMLStatement(name, rentals, totalAmount(), frequentRenterPoints()).generate();
     }
 
 }
