@@ -5,11 +5,11 @@ import java.util.List;
 class Statement {
 
     private final String customerName;
-    private final List<Rental> customerRentals;
+    private final Rentals customerRentals;
     private final double totalAmount;
     private final int frequentRenterPoints;
 
-    public Statement(String customerName, List<Rental> customerRentals, double totalAmount, int frequentRenterPoints) {
+    public Statement(String customerName, Rentals customerRentals, double totalAmount, int frequentRenterPoints) {
         this.customerName = customerName;
         this.customerRentals = customerRentals;
         this.totalAmount = totalAmount;
@@ -26,7 +26,7 @@ class Statement {
 
     private String body() {
         String body = "";
-        for (Rental rental : customerRentals) {
+        for (Rental rental : customerRentals.getRentals()) {
             body += "\t" + rental.getMovie().getTitle() + "\t" +
                     rental.amount() + "\n";
         }
