@@ -1,7 +1,5 @@
 package com.thoughtworks.movierental;
 
-import java.util.List;
-
 class HTMLStatement {
 
     private final String customerName;
@@ -26,7 +24,7 @@ class HTMLStatement {
 
     private String htmlBody() {
         String body = "";
-        for (Rental rental : customerRentals.getRentals()) {
+        for (Rental rental : customerRentals.get()) {
             body += "&emsp; " + rental.getMovie().getTitle() + " &emsp; " +
                     rental.amount() + "<br>";
         }

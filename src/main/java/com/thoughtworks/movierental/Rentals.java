@@ -4,25 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Rentals {
-    private List<Rental> rentals;
+    private final List<Rental> rentals;
 
     public Rentals() {
-        rentals = new ArrayList<Rental>();
+        rentals = new ArrayList<>();
     }
 
     public void add(Rental arg) {
         rentals.add(arg);
     }
 
-    public List<Rental> getRentals() {
+    public List<Rental> get() {
         return rentals;
     }
 
     public double totalAmount() {
-        return getRentals().stream().mapToDouble(Rental::amount).sum();
+        return get().stream().mapToDouble(Rental::amount).sum();
     }
 
     public int frequentRenterPoints() {
-        return getRentals().stream().mapToInt(Rental::frequentRenterPoints).sum();
+        return get().stream().mapToInt(Rental::frequentRenterPoints).sum();
     }
 }

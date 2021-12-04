@@ -1,7 +1,5 @@
 package com.thoughtworks.movierental;
 
-import java.util.List;
-
 class Statement {
 
     private final String customerName;
@@ -26,7 +24,7 @@ class Statement {
 
     private String body() {
         String body = "";
-        for (Rental rental : customerRentals.getRentals()) {
+        for (Rental rental : customerRentals.get()) {
             body += "\t" + rental.getMovie().getTitle() + "\t" +
                     rental.amount() + "\n";
         }
