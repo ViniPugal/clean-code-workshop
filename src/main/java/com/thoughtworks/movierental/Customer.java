@@ -17,11 +17,11 @@ public class Customer {
     }
 
     public String statement() {
-        return new Statement(name, rentals, rentals.totalAmount(), rentals.frequentRenterPoints()).generate();
+        return new Statement(name, rentals).generate();
     }
 
     public String htmlStatement() {
-        return new HTMLStatement(name, rentals, rentals.totalAmount(), rentals.frequentRenterPoints()).generate();
+        return new HTMLStatement(name, rentals).generate();
     }
 
 }

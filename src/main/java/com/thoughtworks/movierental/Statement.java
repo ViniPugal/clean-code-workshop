@@ -4,14 +4,10 @@ class Statement {
 
     private final String customerName;
     private final Rentals customerRentals;
-    private final double totalAmount;
-    private final int frequentRenterPoints;
 
-    public Statement(String customerName, Rentals customerRentals, double totalAmount, int frequentRenterPoints) {
+    public Statement(String customerName, Rentals customerRentals) {
         this.customerName = customerName;
         this.customerRentals = customerRentals;
-        this.totalAmount = totalAmount;
-        this.frequentRenterPoints = frequentRenterPoints;
     }
 
     public String generate() {
@@ -33,8 +29,8 @@ class Statement {
 
     private String footer() {
         String footer = "";
-        footer += "Amount owed is " + totalAmount + "\n";
-        footer += "You earned " + frequentRenterPoints
+        footer += "Amount owed is " + customerRentals.totalAmount() + "\n";
+        footer += "You earned " + customerRentals.frequentRenterPoints()
                 + " frequent renter points";
         return footer;
     }

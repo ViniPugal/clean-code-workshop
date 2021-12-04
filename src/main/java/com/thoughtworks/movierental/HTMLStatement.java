@@ -4,14 +4,10 @@ class HTMLStatement {
 
     private final String customerName;
     private final Rentals customerRentals;
-    private final double totalAmount;
-    private final int frequentRenterPoints;
 
-    public HTMLStatement(String customerName, Rentals customerRentals, double totalAmount, int frequentRenterPoints) {
+    public HTMLStatement(String customerName, Rentals customerRentals) {
         this.customerName = customerName;
         this.customerRentals = customerRentals;
-        this.totalAmount = totalAmount;
-        this.frequentRenterPoints = frequentRenterPoints;
     }
 
     public String generate() {
@@ -33,8 +29,8 @@ class HTMLStatement {
 
     private String htmlFooter() {
         String footer = "";
-        footer += "Amount owed is <b>" + totalAmount + "</b><br>";
-        footer += "You earned <b>" + frequentRenterPoints
+        footer += "Amount owed is <b>" + customerRentals.totalAmount() + "</b><br>";
+        footer += "You earned <b>" + customerRentals.frequentRenterPoints()
                 + "</b> frequent renter points";
         return footer;
     }
