@@ -24,7 +24,7 @@ class HTMLStatement {
 
     private String htmlBody() {
         String body = "";
-        for (Rental rental : customerRentals.get()) {
+        for (Rental rental : customerRentals) {
             body += "&emsp; " + rental.getMovie().getTitle() + " &emsp; " +
                     rental.amount() + "<br>";
         }

@@ -24,7 +24,7 @@ class Statement {
 
     private String body() {
         String body = "";
-        for (Rental rental : customerRentals.get()) {
+        for (Rental rental : customerRentals) {
             body += "\t" + rental.getMovie().getTitle() + "\t" +
                     rental.amount() + "\n";
         }
